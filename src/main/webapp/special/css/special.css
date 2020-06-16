@@ -1,0 +1,121 @@
+html,body{
+    min-height: 100%;
+}
+.main{
+    min-height: 500px;
+}
+a:hover{
+    text-decoration: none;
+}
+.special{
+    margin: 10px;
+    background-color: #ddd;
+    min-width: 100px;
+    min-height: 230px;
+    border-radius:30px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.sign_up,#create{
+    display: block;
+    padding: 10px;
+    color: black;
+    width: 120px;
+    text-align: center;
+    border: #ddd solid 1px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius:50px;
+    background-color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.sign_up:hover,#create:hover{
+    cursor: pointer;
+    text-decoration: none;
+    border-color: #2aabd2;
+    background-color: #CCCCCC;
+    color: white;
+}
+/*#sum:focus,#ans:focus{*/
+/*    outline: 0;*/
+/*}*/
+.sign_up:visited,#create:visited{
+    text-decoration: none;
+}
+.sign_up:active,#create:active{
+    text-decoration: none;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.sign_up:link,#create:link{
+    text-decoration: none;
+}
+.lock::before{
+    content: "\e033";/*005*/
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.heart::before{
+    content: "\e005";
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.title{
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space:nowrap;
+    width:12em;
+    height:24px;
+    display:block;
+}
+.right{
+    left:90%;
+    top:30%;
+    margin-left:-168px;
+    margin-top:-140px;
+    position:fixed;
+}
+.modal-content{
+    margin-top:100px;
+    background-color: #ddd;
+}
+#special_title{
+    width: 93%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#start,#end{
+    width: 150px;
+}
+#set_password{
+    margin-left: 30px;
+    width: 200px;
+}
+#sub_btn{
+    margin-top: 20px;
+}

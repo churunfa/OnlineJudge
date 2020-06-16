@@ -1,0 +1,11 @@
+html,body{
+    min-height: 100%;
+}
+#info{
+    padding: 30px;
+    background-color: #ddd;
+    width: auto;
+    min-height: 600px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 40px;
+}

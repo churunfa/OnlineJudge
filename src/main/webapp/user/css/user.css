@@ -1,0 +1,80 @@
+html,body{
+    min-height: 100%;
+}
+.main_{
+    margin-top: 20px;
+    min-height: 500px;
+}
+#user_img{
+    width: 350px;
+    height: 300px;
+}
+.img_div{
+    width: 350px    ;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 10%;
+}
+.img_div img{
+    border-radius: 10%;
+}
+.img_div:hover{
+    cursor: pointer;
+}
+.problem_wa{
+    margin-top:20px;
+}
+.user_info{
+    min-height: 350px;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#tag,#wa{
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #ddd;
+    border-radius: 25px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#tag a,#wa a{
+    text-align: center;
+    width: 280px;
+    float: left;
+    padding: 10px;
+    color: black;
+    border: #ddd solid 1px;
+    margin: 3px;
+    border-radius:30px;
+    background-color: #CCFFFF;;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#tag a:hover,#wa a:hover{
+    text-decoration: none;
+    border-color: #2aabd2;
+    background-color: #CCCCCC;
+    color: white;
+}
+#tag a:visited,#wa a:hover{
+    text-decoration: none;
+}
+#tag a:active,#wa a:active{
+    text-decoration: none;
+}
+#tag a:link,#wa a:link{
+    text-decoration: none;
+}
+
+#wa a{
+    background-color:#FFCCCC;
+}
+#more_ac,#more_wa{
+    text-align: center;
+}
+#more_ac:hover,#more_wa:hover{
+    cursor: pointer;
+}

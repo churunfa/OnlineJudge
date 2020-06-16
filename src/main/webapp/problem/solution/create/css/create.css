@@ -1,0 +1,54 @@
+html,body{
+    min-height: 100%;
+}
+#sum,#ans{
+    display: block;
+    padding: 10px;
+    color: black;
+    width: 170px;
+    text-align: center;
+    border: #ddd solid 1px;
+    margin-bottom: 20px;
+    border-radius:50px;
+    background-color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#sum:hover,#ans:hover{
+    cursor:pointer;
+    text-decoration: none;
+    border-color: #2aabd2;
+    background-color: #CCCCCC;
+    color: white;
+}
+/*#sum:focus,#ans:focus{*/
+/*    outline: 0;*/
+/*}*/
+#sum:visited,#ans:visited{
+    text-decoration: none;
+}
+#sum:active,#ans:active{
+    text-decoration: none;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#sum:link,#ans:link{
+    text-decoration: none;
+}
+
+#submit{
+    height: 70px;
+    position: relative;
+}
+#sum{
+    position: absolute;
+    right: 250px;
+    top: auto;
+    bottom: auto;
+}
+#ans{
+    position: absolute;
+    right: 50px;
+    top: auto;
+    bottom: auto;
+}
