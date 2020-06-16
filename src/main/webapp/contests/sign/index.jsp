@@ -1,7 +1,8 @@
 <%@ page import="OnlineJudge.service.impl.ContestsServiceImpl" %>
 <%@ page import="OnlineJudge.dao.impl.ContestsDaoImpl" %>
 <%@ page import="OnlineJudge.domain.Contest" %>
-<%@ page import="java.util.Date" %><%--
+<%@ page import="java.util.Date" %>
+<%@ page import="OnlineJudge.domain.User_password" %><%--
   Created by IntelliJ IDEA.
   User: churunfa
   Date: 2020/5/19
@@ -66,7 +67,12 @@
         return;
     }
 
+    User_password user = (User_password) request.getSession().getAttribute("User");
+    if(user == null) request.setAttribute("lv",-1);
+    else request.setAttribute("lv",user.getLv());
+
     request.setAttribute("con",contest);
+    request.setAttribute("contest",contest);
 
 %>
 
@@ -87,7 +93,9 @@
     </div>
 </div>
 <div hidden id="id">${con.id}</div>
+<div hidden id="div">${contest.type}</div>
 <div hidden id="path">${pageContext.request.contextPath}</div>
+<div hidden id="lv">${lv}</div>
 <div id="footer"></div>
 </body>
 </html>

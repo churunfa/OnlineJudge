@@ -189,6 +189,21 @@ public class ContestServlet extends BaseServlet {
             writeValue(info,response);
         }
 
+        String div = contest.getType();
+        int lv = user.getLv();
+        if("div3".equals(div) && lv >= 3){
+            info.setSuccess(false);
+            info.setMsg("div3以下用户才可以报名此比赛");
+            writeValue(info,response);
+            return;
+        }
+        if("div2".equals(div) && lv >=4 ){
+            info.setSuccess(false);
+            info.setMsg("div4以下用户才可以报名此比赛");
+            writeValue(info,response);
+            return;
+        }
+
         try {
             contestsDao.sign(user.getId(),Integer.parseInt(id));
             info.setSuccess(true);

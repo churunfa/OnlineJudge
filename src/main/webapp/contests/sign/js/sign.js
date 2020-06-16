@@ -10,6 +10,21 @@ $(function () {
     var id = $("#id").html();
     path = $("#path").html();
     $("#sign").click(function () {
+        var lv = $("#lv").html();
+        var div = $("#div");
+        if(lv == -1){
+            alert("请登录之后再进行报名");
+            return;
+        }
+        if(div == "div3" && lv >= 3){
+            alert("div3以下用户才可以报名此比赛");
+            return;
+        }
+        if(div == "div2" && lv >=4 ){
+            alert("div4以下用户才可以报名此比赛");
+            return;
+        }
+
         $.ajax( {
             url:path+"/contestServlet/signServlet",// 跳转到
             data:{

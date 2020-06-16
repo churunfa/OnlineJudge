@@ -119,20 +119,24 @@ $(function () {
 
         if(st == null){
             alert("请选择开始时间");
+            $btn.button('reset')
             return;
         }
         if(ed == null){
+            $btn.button('reset')
             alert("请选择结束时间");
             return;
         }
 
         if(type.length==0){
+            $btn.button('reset')
             alert("比赛类型不能为空");
             return;
         }
 
         if(st.getTime()>ed.getTime()){
-            alert("结束时间不能不能比开始时间早");
+            alert("结束时间不能早于开始时间");
+            $btn.button('reset')
             return;
         }
         
@@ -142,6 +146,7 @@ $(function () {
             
         if(!flag){
             alert("标题中不能包含特殊符号");
+            $btn.button('reset')
             return;
         }
         $.ajax( {
