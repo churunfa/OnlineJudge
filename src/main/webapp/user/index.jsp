@@ -104,12 +104,12 @@
     <div class="row">
         <div class="col-md-4">
             <c:if test="${sessionScope.User.id == requestScope.User.id}">
-                <div class="img_div" title="点击更换头像">
+                <div class="img_div img_div_self" title="点击更换头像">
                     <img class="head" src="${pageContext.request.contextPath}${User.head_img}" alt="" width="350px" height="350px">
                 </div>
             </c:if>
             <c:if test="${sessionScope.User.id != requestScope.User.id}">
-                <div class="img_div"><img class="head" src="${pageContext.request.contextPath}/${User.head_img}" alt="" width="350px" height="350px">
+                <div class="img_div"><img class="head" src="${pageContext.request.contextPath}${User.head_img}" alt="" width="350px" height="350px">
                 </div>
              </c:if>
 
@@ -209,7 +209,7 @@
                         <p>班级：<span>${User.grade}</span></p>
                     </div>
                 </div>
-                <p>出题场数：<a href="">${contestMaster}场</a></p>
+                <p>出题场数：<a>${contestMaster}场</a></p>
 
                 <c:if test="${sessionScope.User.power == 'root'}">
                     <p>学号：<span>${User.uid}</span></p>

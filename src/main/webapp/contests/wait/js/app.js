@@ -89,7 +89,7 @@ function init(){
         var seconds = parseInt(time / 1000 % 60);
 
         if(time<=0){
-            location.href=path+"/contests/contests_show/?id="+id;
+            location.href=path+"/contests/contests_show/?id="+cid;
         }
         var syday = "<span>" + hour + "</span>" + "小时" + "<span>" + minute + "</span>" + "分钟" + "<span class='Lose'>" + seconds + "</span>" + "秒";
         $('.time').html("<p>"+ $('#title').html() +"</p>" + "<p><span>" + day + "</span>" + "天</p>");

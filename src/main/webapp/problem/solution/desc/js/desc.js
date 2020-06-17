@@ -114,6 +114,7 @@ $(function () {
         success:function(data) {
             if(data.success){
                 var html = compile(data.msg);
+                console.log(data);
                 $("#sol-desc").html(html);
             }else{
 

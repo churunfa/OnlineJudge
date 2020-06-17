@@ -18,7 +18,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Oline Judge</title>
+    <title>Online Judge</title>
     <!-- Bootstrap -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 

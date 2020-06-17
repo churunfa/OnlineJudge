@@ -17,7 +17,7 @@ html,body{
 .img_div img{
     border-radius: 10%;
 }
-.img_div:hover{
+.img_div_self:hover{
     cursor: pointer;
 }
 .problem_wa{

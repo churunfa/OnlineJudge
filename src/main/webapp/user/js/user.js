@@ -41,7 +41,7 @@ var visit_id,path;
 $(function () {
     load_header();
     visit_id = $("#visit_id").html();
-    $(".img_div").click(function () {
+    $(".img_div_self").click(function () {
         $("#load_img").trigger("click");
     })
     $("#load_img").change(function () {

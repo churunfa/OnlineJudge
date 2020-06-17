@@ -94,7 +94,6 @@ function gao(flag=true){
                 }
 
             }else{
-                console.log(data);
             }
         },
         error : function() {
@@ -114,7 +113,6 @@ function get_time(){
         cache:false,
         dataType:'json',
         success:function(data) {
-            console.log(data)
             if(data.success){
                 askCount++;
                 st_time = data.data.st;

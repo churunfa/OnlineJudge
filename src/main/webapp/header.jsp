@@ -188,7 +188,7 @@
                 $("#register_msg").show();
                 return;
             }
-            if(uid.length>15){
+            if(uid.length>20){
                 $("#register_msg").html("学号过长");
                 $("#register_msg").show();
                 return;
@@ -291,7 +291,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand">Oline Judge</a>
+                <a class="navbar-brand">Online Judge</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -330,8 +330,8 @@
                                     width:7em;
                                     display:block;
                                  "></span></p>
-                                <p>等级：<span id="user_lv"></span></p>
-                                <p>评分：<span  id="user_ranting"></span></p>
+                                <p style="color: black">等级：<span id="user_lv"></span></p>
+                                <p style="color: black">评分：<span  id="user_ranting"></span></p>
                                 <button style="background-color: #ddd" class="btn btn-default glyphicon glyphicon-log-out" id="user_out"></button>
                             </ul>
                         </div>

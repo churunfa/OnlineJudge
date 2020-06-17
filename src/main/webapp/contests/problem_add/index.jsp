@@ -3,16 +3,17 @@
 <%@ page import="OnlineJudge.domain.Problem" %>
 <%@ page import="OnlineJudge.domain.Contest" %>
 <%@ page import="OnlineJudge.domain.User_password" %>
-<%@ page import="java.util.List" %>
 <%@ page import="com.alibaba.druid.sql.visitor.functions.Char" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="OnlineJudge.util.ReadFileData" %>
 <%@ page import="java.io.File" %>
-<%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.regex.Pattern" %>
 <%@ page import="java.util.regex.Matcher" %>
 <%@ page import="OnlineJudge.dao.TagDao" %>
 <%@ page import="OnlineJudge.dao.impl.TagDaoImpl" %>
+<%@ page import="com.mysql.cj.conf.ConnectionUrlParser" %>
+<%@ page import="java.lang.reflect.Array" %>
+<%@ page import="java.util.*" %>
+<%@ page import="OnlineJudge.domain.RankInfo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -91,26 +92,36 @@
         String spj = "";
         if(spjFile.exists()) spj = ReadFileData.txt2String(spjFile, false);
         request.setAttribute("spj",spj);
-        Pattern p_in = Pattern.compile("simple\\d\\.in");
-        Pattern p_out = Pattern.compile("simple\\d\\.out");
+        Pattern p_in = Pattern.compile("simple\\d+\\.in");
+        Pattern p_out = Pattern.compile("simple\\d+\\.out");
 
         File data1 = new File(dataPath);
 
-        File[] files = data1.listFiles();
+        List<File> files = Arrays.asList(data1.listFiles());
         List<String> data_in = new ArrayList<String>();
         List<String> data_out = new ArrayList<String>();
 
         if(files != null){
+
+            Collections.sort(files,new Comparator<File>() {
+                @Override
+                public int compare(File f1, File f2) {
+                    return f1.getName().compareTo(f2.getName());
+                }
+            });
+
             for (File file:files){
                 String name = file.getName();
+                System.out.println(name);
                 String s = null;
                 if(file.exists() && file.isFile()) s = ReadFileData.txt2String(file, false);
                 Matcher m_in = p_in.matcher(name);
                 Matcher m_out = p_out.matcher(name);
-                if(s != null && m_in.find())data_in.add(s);
+                if(s != null && m_in.find()) data_in.add(s);
                 if(s != null && m_out.find()) data_out.add(s);
             }
         }
+
 
         request.setAttribute("data_in",data_in);
         request.setAttribute("data_out",data_out);
@@ -119,15 +130,14 @@
 
         File data2 = new File(dataPath);
         int sum_in = 0,sum_out = 0;
-        String[] data2s = data2.list();
-
+        File[] data2s = data2.listFiles();
 
         if(data2s != null){
-            for(String data:data2s){
+            for(File data:data2s){
                 Pattern p_in2 = Pattern.compile("\\.in");
                 Pattern p_out2 = Pattern.compile("\\.out");
-                Matcher m_in = p_in2.matcher(data);
-                Matcher m_out = p_out2.matcher(data);
+                Matcher m_in = p_in2.matcher(data.getName());
+                Matcher m_out = p_out2.matcher(data.getName());
                 if(m_in.find()) sum_in++;
                 if(m_out.find()) sum_out++;
             }
@@ -295,7 +305,7 @@ $$1 \leq n \leq 10^5, 1\leq a \leq 10^9$$
                     <td>
                         <input class="form-control" id="time_limit"
                             <c:if test="${flag == 1}">value = "${pro.time_limit}"</c:if>
-                            <c:if test="${flag != 1}">value="1000"</c:if>
+                            <c:if test="${flag != 1}">value="1"</c:if>
                         >
                     </td>
                 </tr>

@@ -270,7 +270,9 @@ public class BlogServlet extends BaseServlet {
         String realPath = this.getServletContext().getRealPath(path);
 
         File file = new File(realPath);
-        String text = ReadFileData.txt2String(file);
+        String text = ReadFileData.txt2String(file,true);
+
+        System.out.println(text);
 
         info.setSuccess(true);
         info.setMsg(text);

@@ -76,7 +76,6 @@ public class RantingChange implements Job {
 
         System.out.println(new Date()+"正在执行"+group+"的任务任务"+name);
 
-
         JobKey jobKey = new JobKey(name,group);
         try {
             context.getScheduler().deleteJob(jobKey);

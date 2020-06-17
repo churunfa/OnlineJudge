@@ -25,7 +25,7 @@
         response.sendRedirect(request.getContextPath()+"/contests/wait?id="+id);
         return;
     }
-
+    request.setAttribute("contest",contestByCid);
     request.setAttribute("title","Round #"+contestByCid.getId());
 
     long st = contestByCid.getStart_time().getTime();
@@ -175,10 +175,12 @@
             </div>
         </div>
     </div>
-    <div style="position: relative;min-width: 750px;overflow: hidden">
-        <textarea rows="4" class="form-control autofit col-md-9" maxlength="2000"; id="news"></textarea>
-        <a class="submit" id="update">更新通知内容</a>
-    </div>
+    <c:if test="${sessionScope.User.power == 'root' || sessionScope.User.id == contest.master }">
+        <div style="position: relative;min-width: 750px;overflow: hidden">
+            <textarea rows="4" class="form-control autofit col-md-9" maxlength="2000"; id="news"></textarea>
+            <a class="submit" id="update">更新通知内容</a>
+        </div>
+    </c:if>
 </div>
 
 <textarea hidden id="old_tz"></textarea>

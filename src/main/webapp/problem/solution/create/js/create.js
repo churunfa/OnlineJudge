@@ -122,10 +122,12 @@ function save(flag=true){
     var text = $("#user_input").html();
     if(title.length == 0){
         if(flag) alert("标题不能为空");
+        $("#sum").button('reset')
         return
     }
     if(text.length==0){
         if(flag) alert("正文不能为空");
+        $("#sum").button('reset')
         return;
     }
     $.ajax( {
@@ -159,14 +161,16 @@ function save(flag=true){
 function submit(){
     id = $("#id").html();
     var title = $("#title").val();
-    var text = $("#user_input").html();
+    var text = $("#user_input").val();
     if(title.length == 0){
         alert("标题不能为空");
+        $("#ans").button('reset');
         return;
     }
     if(text.length==0){
         alert("正文不能为空");
-        return
+        $("#ans").button('reset');
+        return;
     }
     $.ajax( {
         url:path+"/blogServlet/submitServlet",// 跳转到
@@ -210,7 +214,7 @@ $(function() {
         save();
     })
     $('#ans').on('click', function () {
-        $(this).button('loading')
+        $(this).button('loading');
         submit();
     })
 });
