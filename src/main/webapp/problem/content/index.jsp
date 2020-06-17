@@ -110,7 +110,6 @@
 
     User_password user = (User_password) request.getSession().getAttribute("User");
 
-
     codeInfo codeInfo = null;
     if(user != null) codeInfo = problemDao.findCode(problem.getPid(),user.getId());
     String code = "",language = "";
