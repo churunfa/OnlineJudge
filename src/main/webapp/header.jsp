@@ -314,7 +314,7 @@
                                data-toggle="dropdown"
                                onclick='jump_user_info()';
                             >
-                                <img hidden id="head_img" src="" class="img-circle">
+                                <img hidden id="head_img" src="" class="img-circle" style="width: 40px;height: 40px">
                             </a><%--                            <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
 <%--                                Dropdown trigger--%>
 <%--                                <span class="caret"></span>--%>

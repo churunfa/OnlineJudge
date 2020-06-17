@@ -83,7 +83,7 @@
                 <div class="panel-heading row sol-css">
                     <div class="col-md-3 left">
                         <a href="${pageContext.request.contextPath}/user?id=${data.user.id}" title="${data.user.name}">
-                            <img src="${pageContext.request.contextPath}${data.user.head_img}" alt="头像" class="img-circle user-img" style="width: 60px">
+                            <img src="${pageContext.request.contextPath}${data.user.head_img}" alt="头像" class="img-circle user-img" style="width: 60px;height: 60px">
                         </a>
                         <div>
                             <span style="padding-left: 20px;" class="glyphicon glyphicon-heart fabulous"></span>

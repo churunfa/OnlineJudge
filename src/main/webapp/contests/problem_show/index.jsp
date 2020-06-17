@@ -101,9 +101,16 @@
     request.setAttribute("text",text);
 
     User_password user = (User_password) request.getSession().getAttribute("User");
-    String code = "";
-    if(user != null) code = problemDao.findCode(problem.getPid(),user.getId());
+    codeInfo codeInfo = null;
+    if(user != null) codeInfo = problemDao.findCode(problem.getPid(),user.getId());
+    String code = "",language = "";
+    if(codeInfo != null){
+        code = codeInfo.getCode();
+        language = codeInfo.getLanguage();
+    }
     request.setAttribute("code",code);
+    request.setAttribute("code_language",language);
+
 
     boolean standardFlag = false;
     if(user != null && ("root".equals(user.getPower())||user.getId() == contest.getMaster())) standardFlag = true;
@@ -200,11 +207,21 @@
             <div class="glyphicon glyphicon-console" style="font-size: 30px;padding-left: 50px;padding-top: 10px"></div>
             <select class="form-control laguage" id="languages">
                 <c:forEach items="${languages}" var="language" varStatus="sta">
-                    <c:if test="${sta.index == 0}">
-                        <option selected>${language}</option>
+                    <c:if test="${fn:length(code_language) == 0}">
+                        <c:if test="${sta.index == 0}">
+                            <option selected>${language}</option>
+                        </c:if>
+                        <c:if test="${sta.index != 0}">
+                            <option>${language}</option>
+                        </c:if>
                     </c:if>
-                    <c:if test="${sta.index != 0}">
-                        <option>${language}</option>
+                    <c:if test="${fn:length(code_language) != 0}">
+                        <c:if test="${language == code_language}">
+                            <option selected>${language}</option>
+                        </c:if>
+                        <c:if test="${language != code_language}">
+                            <option>${language}</option>
+                        </c:if>
                     </c:if>
                 </c:forEach>
 <%--                <option>C</option>--%>

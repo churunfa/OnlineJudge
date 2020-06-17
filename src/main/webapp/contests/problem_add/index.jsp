@@ -112,7 +112,6 @@
 
             for (File file:files){
                 String name = file.getName();
-                System.out.println(name);
                 String s = null;
                 if(file.exists() && file.isFile()) s = ReadFileData.txt2String(file, false);
                 Matcher m_in = p_in.matcher(name);

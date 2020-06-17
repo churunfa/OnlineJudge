@@ -4,6 +4,7 @@ import OnlineJudge.dao.ProblemDao;
 import OnlineJudge.domain.Contest;
 import OnlineJudge.domain.Problem;
 import OnlineJudge.domain.Standard_code;
+import OnlineJudge.domain.codeInfo;
 import OnlineJudge.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -154,27 +155,27 @@ public class ProblemDaoImpl implements ProblemDao {
     }
 
     @Override
-    public void updateCode(int pid, int uid, String code) {
+    public void updateCode(int pid, int uid, String code,String language) {
         String sql = "select count(*) from user_code where pid = ? and uid = ?;";
         int count = template.queryForObject(sql, int.class, pid, uid);
         if(count == 0){
-            sql = "insert into user_code(pid,uid,code) values(?,?,?);";
-            template.update(sql,pid,uid,code);
+            sql = "insert into user_code(pid,uid,code,language) values(?,?,?,?);";
+            template.update(sql,pid,uid,code,language);
         }else{
-            sql = "update user_code set code = ? where pid = ? and uid = ?;";
-            template.update(sql,code,pid,uid);
+            sql = "update user_code set code = ? ,language = ? where pid = ? and uid = ?;";
+            template.update(sql,code,language,pid,uid);
         }
     }
 
     @Override
-    public String findCode(int pid, int uid) {
+    public codeInfo findCode(int pid, int uid) {
         String sql = "select count(*) from user_code where pid = ? and uid = ?;";
         int count = template.queryForObject(sql, int.class, pid, uid);
         if(count != 0){
-            sql = "select code from user_code where pid = ? and uid = ?;";
-            return template.queryForObject(sql,String.class,pid,uid);
+            sql = "select code,language from user_code where pid = ? and uid = ?;";
+            return template.queryForObject(sql,new BeanPropertyRowMapper<codeInfo>(codeInfo.class),pid,uid);
         }
-        return "";
+        return null;
     }
 
     @Override

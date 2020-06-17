@@ -74,7 +74,7 @@
         <c:forEach items="${users}" var="user" varStatus="sta">
             <tr>
                 <td style="display:table-cell; vertical-align:middle">${sta.index+1}</td>
-                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${user.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${user.id}" style="font-size: 20px;display: block">${user.name}</a></td>
+                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${user.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${user.id}" style="font-size: 20px;display: block">${user.name}</a></td>
                 <td style="display:table-cell; vertical-align:middle">${user.ranting}</td>
             </tr>
         </c:forEach>

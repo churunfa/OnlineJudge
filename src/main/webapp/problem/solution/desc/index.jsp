@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-md-1">
                             <a href="#">
-                                <img src="../../../imgs/crf.png" alt="crf" class="img-circle user-img" style="width: 30px">
+                                <img src="../../../imgs/crf.png" alt="crf" class="img-circle user-img" style="width: 30px;height: 30px">
                             </a>
                             <a href="#" style="font-size: 13px;">回复</a>
                             <a href="#" hidden style="font-size: 13px;">删除</a>

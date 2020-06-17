@@ -209,8 +209,7 @@ function get_time_js(){
 function save(){
     var pid = $("#pid").html();
     var code = editor.getValue();
-
-    if(code.length == 0) return;
+    var language = $("#languages option:selected").html();
 
     //pid
     //code
@@ -219,6 +218,7 @@ function save(){
         data:{
             pid:pid,
             code:code,
+            language:language,
         },
         type:'post',
         cache:false,

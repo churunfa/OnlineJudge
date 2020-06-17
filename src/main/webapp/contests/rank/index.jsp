@@ -97,7 +97,7 @@
         <tr>
             <c:forEach items="${user}" var="info" varStatus="sta">
                 <td style="display:table-cell; vertical-align:middle;font-size: 20px">${info.rank}</td>
-                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${info.user.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${info.user.id}" style="font-size: 20px;display: block">${info.user.name}</a></td>
+                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${info.user.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${info.user.id}" style="font-size: 20px;display: block">${info.user.name}</a></td>
                 <td style="display:table-cell; vertical-align:middle">${info.sum}</td>
                 <c:forEach items="${pro}" var="p" varStatus="sta">
                     <td style="display:table-cell; vertical-align:middle; border:1px #fff solid;"

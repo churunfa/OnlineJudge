@@ -172,6 +172,15 @@ public class ContestServlet extends BaseServlet {
             return;
         }
 
+        Contest contest = contestsDao.findContestByCid(Integer.parseInt(id));
+
+        if(contest == null){
+            info.setMsg("未找到该比赛");
+            info.setSuccess(false);
+            writeValue(info,response);
+            return;
+        }
+
         if(contestsDao.checkSign(user.getId(),Integer.parseInt(id)) > 0){
             info.setSuccess(false);
             info.setMsg("您已报名，请不要重复报名");
@@ -179,7 +188,20 @@ public class ContestServlet extends BaseServlet {
             return;
         }
 
-        Contest contest = contestsDao.findContestByCid(Integer.parseInt(id));
+        if(contest.getMaster() == user.getId()){
+            info.setSuccess(false);
+            info.setMsg("您不可以报名自己创建的比赛");
+            writeValue(info,response);
+            return;
+        }
+
+        if("root".equals(user.getPower())){
+            info.setSuccess(false);
+            info.setMsg("root用户请勿报名");
+            return;
+        }
+
+
         Long st = contest.getStart_time().getTime();
         Long now = new Date().getTime();
 

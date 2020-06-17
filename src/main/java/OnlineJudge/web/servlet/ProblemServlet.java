@@ -411,6 +411,7 @@ public class ProblemServlet extends BaseServlet {
         info info = new info();
         String pid = request.getParameter("pid");
         String code = request.getParameter("code");
+        String language = request.getParameter("language");
         User_password user =(User_password) request.getSession().getAttribute("User");
         if(user == null){
             info.setSuccess(false);
@@ -431,7 +432,7 @@ public class ProblemServlet extends BaseServlet {
             writeValue(info,response);
             return;
         }
-        problemDao.updateCode(Integer.parseInt(pid),user.getId(),code);
+        problemDao.updateCode(Integer.parseInt(pid),user.getId(),code,language);
         info.setMsg("更新成功");
         info.setSuccess(true);
         writeValue(info,response);

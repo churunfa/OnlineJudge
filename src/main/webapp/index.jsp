@@ -63,7 +63,7 @@
             dates.add("距比赛开始还有："+TimeSub.Sub(contest.getContest().getStart_time(),date));
         }
 
-        if(user != null) checks.add(contestsDao.checkSign(user.getId(),contest.getContest().getId()));
+        if(user != null && user.getId() != contest.getMaster().getId() &&!"root".equals(user.getPower()))checks.add(contestsDao.checkSign(user.getId(),contest.getContest().getId()));
 
     }
 
@@ -124,7 +124,7 @@
                                 <tr>
                                     <td style="display:table-cell; vertical-align:middle"><a href="${pageContext.request.contextPath}/contests/contests_show/?id=${contest.contest.id}">Round #${contest.contest.id} ${contest.contest.name}</a></td>
                                     <td style="display:table-cell; vertical-align:middle">${contest.contest.type}</td>
-                                    <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${contest.master.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${contest.master.id}" style="font-size: 20px;display: block">${contest.master.name}</a></td>
+                                    <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${contest.master.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${contest.master.id}" style="font-size: 20px;display: block">${contest.master.name}</a></td>
                                     <td style="display:table-cell; vertical-align:middle"><fmt:formatDate value="${contest.contest.start_time}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                                     <td style="display:table-cell; vertical-align:middle">${lengths[sta.index]}</td>
                                     <td style="display:table-cell; vertical-align:middle">${dates[sta.index]}</td>
@@ -207,19 +207,19 @@
                             <tr>
                                 <td style="display:table-cell; vertical-align:middle"><a href="${pageContext.request.contextPath}/contests/contests_show/?id=${top3[sta.index].contest.id}">Round #${top3[sta.index].contest.id} ${top3[sta.index].contest.name}</a></td>
                                 <c:if test="${not empty top3[sta.index].top1}">
-                                    <td style="display:table-cell; vertical-align:middle" class="top1_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top1.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top1.id}" style="font-size: 20px;display: block">${top3[sta.index].top1.name}</a></td>
+                                    <td style="display:table-cell; vertical-align:middle" class="top1_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top1.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top1.id}" style="font-size: 20px;display: block">${top3[sta.index].top1.name}</a></td>
                                     <td style="display:table-cell; vertical-align:middle" class="top1_col">${ac_sum[sta.index].top1}</td>
                                     <td style="display:table-cell; vertical-align:middle" class="top1_col">${top3[sta.index].top1.ranting}</td>
                                 </c:if>
                                 <c:if test="${empty top3[sta.index].top1}"><td></td><td></td><td></td></c:if>
                                 <c:if test="${not empty top3[sta.index].top2}">
-                                <td style="display:table-cell; vertical-align:middle" class="top2_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top2.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top2.id}" style="font-size: 20px;display: block">${top3[sta.index].top2.name}</a></td>
+                                <td style="display:table-cell; vertical-align:middle" class="top2_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top2.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top2.id}" style="font-size: 20px;display: block">${top3[sta.index].top2.name}</a></td>
                                 <td style="display:table-cell; vertical-align:middle" class="top1_col">${ac_sum[sta.index].top2}</td>
                                 <td style="display:table-cell; vertical-align:middle" class="top1_col">${top3[sta.index].top2.ranting}</td>
                                 </c:if>
                                 <c:if test="${empty top3[sta.index].top2}"><td></td><td></td><td></td></c:if>
                                 <c:if test="${not empty top3[sta.index].top3}">
-                                <td style="display:table-cell; vertical-align:middle" class="top2_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top3.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top3.id}" style="font-size: 20px;display: block">${top3[sta.index].top3.name}</a></td>
+                                <td style="display:table-cell; vertical-align:middle" class="top2_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top3.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top3.id}" style="font-size: 20px;display: block">${top3[sta.index].top3.name}</a></td>
                                 <td style="display:table-cell; vertical-align:middle" class="top1_col">${ac_sum[sta.index].top3}</td>
                                 <td style="display:table-cell; vertical-align:middle" class="top1_col">${top3[sta.index].top3.ranting}</td>
                                 </c:if>

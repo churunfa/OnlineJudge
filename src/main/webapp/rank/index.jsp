@@ -93,7 +93,7 @@
         <c:forEach items="${info}" var="data">
             <tr>
                 <td style="display:table-cell; vertical-align:middle">${data.rank}</td>
-                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${data.user.head_img}" alt="头像" class="img-circle" style="width: 30px"><a href="${pageContext.request.contextPath}/user?id=${data.user.id}" style="font-size: 20px;display: block">${data.user.name}</a></td>
+                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${data.user.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${data.user.id}" style="font-size: 20px;display: block">${data.user.name}</a></td>
                 <td style="display:table-cell; vertical-align:middle">${data.ac_sum}</td>
                 <td style="display:table-cell; vertical-align:middle">${data.sign_sum}</td>
                 <td style="display:table-cell; vertical-align:middle">${data.con_sum}</td>
