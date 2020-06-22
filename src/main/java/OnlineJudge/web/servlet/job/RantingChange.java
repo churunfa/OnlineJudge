@@ -30,17 +30,17 @@ public class RantingChange implements Job {
 
         List<ContestRank> rank_ = contestsService.findRank(Integer.parseInt(cid));
 
-        List<User> users = new ArrayList<User>();
+        List<ContestRank> ranks = new ArrayList<ContestRank>();
+        for(ContestRank rank : rank_) if(!"*".equals(rank.getRank())) ranks.add(rank);
 
-        for(ContestRank rank : rank_) if(!"*".equals(rank.getRank())) users.add(rank.getUser());
-
-        int tot = users.size();
+        int tot = ranks.size();
         int endSum = 0;
 
-        for(int i = users.size() - 1;i >= 0;i--){
-            User user = users.get(i);
+        for(int i = ranks.size() - 1;i >= 0;i--){
+            ContestRank now_rank = ranks.get(i);
+            User user = ranks.get(i).getUser();
             int oldRank = user.getRanting();
-            if(i == users.size() - 1){
+            if(i == ranks.size() - 1){
                 int dRank = -50;
                 System.out.println(user.getName()+"rank:"+dRank);
                 user.setRanting(Math.max(0,user.getRanting()+dRank));
@@ -52,6 +52,13 @@ public class RantingChange implements Job {
                 contest_rank.setUser_rank(i+1);
                 contest_rank.setUid(user.getId());
                 userDao.setContest_rank(contest_rank);
+
+                Contest_User_info contest_user_info = new Contest_User_info();
+                contest_user_info.setUid(user.getId());
+                contest_user_info.setContest_id(Integer.parseInt(cid));
+                contest_user_info.setPenalty((int)now_rank.getPenalty());
+                contest_user_info.setAc_sum(now_rank.getSum());
+                userDao.updateContest_user_info(contest_user_info);
             }
             else{
                 int endRank = tot - i - 1;
@@ -70,6 +77,13 @@ public class RantingChange implements Job {
                 contest_rank.setUser_rank(i+1);
                 contest_rank.setUid(user.getId());
                 userDao.setContest_rank(contest_rank);
+
+                Contest_User_info contest_user_info = new Contest_User_info();
+                contest_user_info.setUid(user.getId());
+                contest_user_info.setContest_id(Integer.parseInt(cid));
+                contest_user_info.setPenalty((int)now_rank.getPenalty());
+                contest_user_info.setAc_sum(now_rank.getSum());
+                userDao.updateContest_user_info(contest_user_info);
             }
             endSum += oldRank;
         }

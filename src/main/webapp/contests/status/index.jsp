@@ -208,7 +208,7 @@
                 </td>
                 <td style="display:table-cell; vertical-align:middle">
                     <span><fmt:formatDate value="${dat.status.sub_time}" pattern="yyyy-MM-dd"/></span><br>
-                    <spanp style="font-size: 10px"><fmt:formatDate value="${dat.status.sub_time}" pattern="hh时mm分"/></spanp>
+                    <spanp style="font-size: 10px"><fmt:formatDate value="${dat.status.sub_time}" pattern="HH时mm分"/></spanp>
                 </td>
                 <td style="display:table-cell; vertical-align:middle"><a href="${pageContext.request.contextPath}/user?id=${dat.user.id}">${dat.user.name}</a></td>
                 <td style="display:table-cell; vertical-align:middle"><a href="${pageContext.request.contextPath}/contests/problem_show?id=${dat.problem.pid}">${dat.problem.title}</a></td>

@@ -135,6 +135,7 @@ public interface UserDao {
     Contest findContestByCid(int id);
 
     Contest_User_info findContest_User_info(int contest_id,int uid);
+    void updateContest_user_info(Contest_User_info info);
 
     List<Problem> findAllProblem();
     List<Tag> findAllTag();

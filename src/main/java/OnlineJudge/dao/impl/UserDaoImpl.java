@@ -92,7 +92,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void update_date(int id) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        "update pet set name='kk0' where name='kk1';"
         String sql = "update user_info set last_login = ? where id = ?;";
         template.update(sql,new Date(), id);
     }
@@ -441,6 +440,19 @@ public class UserDaoImpl implements UserDao {
         }catch (Exception e){
         }
         return contests;
+    }
+
+    @Override
+    public void updateContest_user_info(Contest_User_info info) {
+        String sql = "select count(*) from contest_user_info where uid = ? and contest_id = ?;";
+        int count = template.queryForObject(sql, int.class, info.getUid(), info.getContest_id());
+        if(count == 0){
+            sql = "insert into contest_user_info values(?,?,?,?);";
+            template.update(sql,info.getContest_id(),info.getUid(),info.getPenalty(),info.getAc_sum());
+        }else{
+            sql = "update contest_user_info set penalty = ? ,ac_sum = ?  where uid = ? and contest_id = ?;";
+            template.update(sql,info.getPenalty(),info.getAc_sum(),info.getUid(),info.getContest_id());
+        }
     }
 
     @Override

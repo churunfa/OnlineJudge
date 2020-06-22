@@ -76,12 +76,12 @@
 
     List<Top3> top3s = userService.findTop3();
     Collections.reverse(top3s);
-
     request.setAttribute("top3",top3s);
 
     List<top3Ac> info = new ArrayList<top3Ac>() ;
 
     for(Top3 top:top3s){
+        System.out.println(top.getTop1().getId());
         Contest_User_info top1_info = null,top2_info = null,top3_info = null;
         if(top.getTop1() != null) top1_info = userDao.findContest_User_info(top.getContest().getId(), top.getTop1().getId());
         if(top.getTop2() != null) top2_info = userDao.findContest_User_info(top.getContest().getId(), top.getTop2().getId());
@@ -91,6 +91,7 @@
         if(top1_info != null ) ac.setTop1(top1_info.getAc_sum());
         if(top2_info != null ) ac.setTop2(top2_info.getAc_sum());
         if(top3_info != null ) ac.setTop3(top3_info.getAc_sum());
+
         info.add(ac);
     }
     request.setAttribute("ac_sum",info);

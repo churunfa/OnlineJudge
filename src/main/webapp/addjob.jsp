@@ -16,5 +16,6 @@
     <a href="${pageContext.request.contextPath}/quartz/reTest?id=51">重测</a>
     <a href="${pageContext.request.contextPath}/quartz/remove?id=51">移除</a>
     <a href="${pageContext.request.contextPath}/quartz/removeDelJob">移除delJob</a>
+    <a href="${pageContext.request.contextPath}/quartz/rantingChange?id=1">更新ranting</a>
 </body>
 </html>
