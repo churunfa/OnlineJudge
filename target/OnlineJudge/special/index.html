@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"  style="min-width: 800px;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>专项训练</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!--导入布局js，共享header和footer-->
+    <script type="text/javascript" src="js/special.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="icon" type="image/png" sizes="144x144" href="../imgs/logo_blue_144.png"/>
+    <script src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$']]},
+        messageStyle: "none"
+    });
+    </script>
+    <link rel="stylesheet" href="./css/special.css">
+    <script src="./js/special.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../js/jeDate/test/jeDate-test.css">
+    <link type="text/css" rel="stylesheet" href="../js/jeDate/skin/jedate.css">
+    <script type="text/javascript" src="../js/jeDate/src/jedate.js"></script>
+</head>
+<body style="padding-top: 60px;
+    background-image: linear-gradient(#E0E0E0, #D8BFD8);
+    min-width: 800px;
+"  hidden>
+<div id="header"></div>
+<div class="container main ">
+    <div class="row">
+        <div class="col-md-3 special">
+            <h4 style="text-align: center; white-space:nowrap;">
+<!--                <span class="glyphicon glyphicon-heart"></span>-->
+                <span class="title lock"><a href="">C语言基础练习</a></span>
+            </h4>
+            <div style="text-align: center">
+                <a href="">
+                    <img class="img-circle" src="../imgs/crf.png" style="width: 30px;height: 30px" alt="">褚润发
+                </a>
+            </div>
+            <div style="margin: 20px;text-align: center">
+                开始时间:
+                <span>2020-05-11 14:44:43</span>
+            </div>
+            <div style="margin: 20px;text-align: center">
+                结束时间:
+                <span>2020-05-12 14:45:01</span>
+            </div>
+            <div>
+                <a class="sign_up"  data-toggle="modal" data-target=".confirm1" href="#">报名</a>
+                <!-- Modal -->
+                <div class="modal fade confirm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">提示</div>
+                            <div class="modal-body">
+                                请输入密码：<input type="password">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary">确认</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <a href="" id="create" data-toggle="modal" data-target="#add_special">创建专题</a>
+    </div>
+    <!-- Large modal -->
+
+    <div class="modal fade " id="add_special" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="min-height: 250px;">
+                <input type="text" class="form-control" placeholder="标题" id="special_title">
+                <div class="row" style="margin: 20px">
+                    <div class="col-md-6" style="text-align: center">
+                        <div class="jeitem">
+                            <div class="jeinpbox"><input type="text" onfocus="this.blur()" class="jeinput" id="start" placeholder="请选择专题开始时间"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="jeitem">
+                            <div class="jeinpbox"><input type="text" onfocus="this.blur()" class="jeinput" id="end" placeholder="请选择专题结束时间"></div>
+                        </div>
+                    </div>
+                </div>
+                <input type="password" class="form-control" placeholder="密码（不填表示没有密码）" id="set_password">
+                <div style="text-align: center">
+                    <button class="btn btn-default" id="sub_btn">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="footer"></div>
+</body>
+</html>

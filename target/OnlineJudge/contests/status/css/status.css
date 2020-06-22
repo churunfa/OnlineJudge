@@ -1,0 +1,52 @@
+html,body{
+    min-height: 100%;
+}
+.main{
+    min-height: 300px;
+}
+.table{
+    background-color: #FFFFFF;
+}
+#change_page{
+    margin-top: 0;
+}
+#page_key{
+    width: 55px;
+}
+#page_btn{
+    margin-top:-1px;
+    margin-left: -4px;
+}
+#page_key:hover{
+    border: #AEEEEE solid 1px;
+}
+#page_key:focus{
+    border: #AEEEEE solid 2px;
+}
+#statue-user-form,
+#statue-pro-form{
+    margin-left: -10px;
+    padding-left: 0;
+    margin-bottom: -5px;
+}
+
+#statue-user{
+    border: #AEEEEE solid 1px;
+    width: 60px;
+}
+#statue-pro{
+    border: #AEEEEE solid 1px;
+    width: 200px;
+}
+#statue-lau-form,
+#statue-sta-form{
+    margin-left: -10px;
+    padding-left: 0;
+    margin-bottom: -5px;
+}
+#statue-lau,
+#statue-sta{
+    border: #AEEEEE solid 1px;
+    width: 90px;
+}
+

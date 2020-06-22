@@ -1,0 +1,33 @@
+html,body {
+    min-height: 100%;
+    padding-top: 30px;
+    background-image: linear-gradient(#E0E0E0, #E0FFFF);
+    /*background-color: #E0E0E0;*/
+}
+#bd{
+    width: 75%;
+    min-height: 600px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+tr th{
+    text-align: center;
+}
+
+.more{
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 35px;
+    margin-bottom: 10px;
+}
+/*.top1_col{*/
+/*    background-color: #66ff66;*/
+/*}*/
+/*.top2_col{*/
+/*    background-color: #66ff99;*/
+/*}*/
+/*.top3_col{*/
+/*    background-color: #66ffcc;*/
+/*}*/
