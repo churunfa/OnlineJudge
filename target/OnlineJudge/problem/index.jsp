@@ -179,7 +179,11 @@
                         </a>
                     </li>
                     <c:forEach begin="${st}" end="${ed}" var="i">
-                        <li><a href="${pageContext.request.contextPath}/problem?pg=${i}&size=${size}&tag=${tag}">${i}</a></li>
+                        <li
+                        <c:if test="${i == nowPage}">
+                            class="active"
+                        </c:if>
+                        ><a href="${pageContext.request.contextPath}/problem?pg=${i}&size=${size}&tag=${tag}">${i}</a></li>
                     </c:forEach>
 
 <%--                    <li><a href="#">2</a></li>--%>

@@ -272,8 +272,6 @@ public class BlogServlet extends BaseServlet {
         File file = new File(realPath);
         String text = ReadFileData.txt2String(file,true);
 
-        System.out.println(text);
-
         info.setSuccess(true);
         info.setMsg(text);
         writeValue(info,response);

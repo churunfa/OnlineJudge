@@ -341,7 +341,7 @@ $$1 \leq n \leq 10^5, 1\leq a \leq 10^9$$
         <c:if test="${flag == 1}">
             <div hidden id="data_sum">${data1_sum}</div>
             <c:forEach begin="1" end="${data1_sum}" var="i">
-                <div id="simple-data${i+1}" class="row data">
+                <div id="simple-data${i}" class="row data">
                     <div class="col-md-5">
                        <textarea type="text" rows="6" class="form-control data-in" placeholder="输入">${data_in[i-1]}</textarea>
                     </div>

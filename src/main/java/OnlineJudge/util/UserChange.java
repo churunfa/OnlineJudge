@@ -45,7 +45,6 @@ public class UserChange {
             user.setLv(6);
             user.setName("<span style='color: #000'>"+name+"</span>");
         }
-
         return user;
     }
 }

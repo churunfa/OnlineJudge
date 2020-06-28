@@ -43,7 +43,11 @@ public class RantingChange implements Job {
             if(i == ranks.size() - 1){
                 int dRank = -50;
                 System.out.println(user.getName()+"rank:"+dRank);
+
+                int oldRanting = user.getRanting();
                 user.setRanting(Math.max(0,user.getRanting()+dRank));
+                user.setMax_ranting(Math.max(oldRanting,user.getRanting()));
+
                 userDao.update_User(UserChange.changeNameLv(user));
 
                 Contest_rank contest_rank = new Contest_rank();
@@ -68,7 +72,11 @@ public class RantingChange implements Job {
                 else dRank += ((endSum / endRank + 1) - user.getRanting()) * 2;
                 dRank += endRank * 4;
                 System.out.println(user.getName()+"rank:"+dRank);
+
+                int oldRanting = user.getRanting();
                 user.setRanting(Math.max(0,user.getRanting()+dRank));
+                user.setMax_ranting(Math.max(oldRanting,user.getRanting()));
+
                 userDao.update_User(UserChange.changeNameLv(user));
 
                 Contest_rank contest_rank = new Contest_rank();
