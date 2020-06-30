@@ -96,11 +96,11 @@
         <tbody style="text-align: center">
         <tr>
             <c:forEach items="${user}" var="info" varStatus="sta">
-                <td style="display:table-cell; vertical-align:middle;font-size: 20px">${info.rank}</td>
-                <td style="display:table-cell; vertical-align:middle"><img src="${pageContext.request.contextPath}${info.user.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${info.user.id}" style="font-size: 20px;display: block">${info.user.name}</a></td>
-                <td style="display:table-cell; vertical-align:middle">${info.sum}</td>
+                <td style="display:table-cell; vertical-align:middle;font-size: 20px; border-bottom:1px #ddd solid;">${info.rank}</td>
+                <td style="display:table-cell; vertical-align:middle; border-bottom:1px #ddd solid;"><a href="${pageContext.request.contextPath}/user?id=${info.user.id}"><img src="${pageContext.request.contextPath}${info.user.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"></a><a href="${pageContext.request.contextPath}/user?id=${info.user.id}" style="font-size: 20px;display: block">${info.user.name}</a></td>
+                <td style="display:table-cell; vertical-align:middle; border:1px #ddd solid;">${info.sum}</td>
                 <c:forEach items="${pro}" var="p" varStatus="sta">
-                    <td style="display:table-cell; vertical-align:middle; border:1px #fff solid;"
+                    <td style="display:table-cell; vertical-align:middle; border:1px #ddd solid;"
                         <c:if test="${info.info[p.pid].acFlag && !info.info[p.pid].first}">
                             class="pass"
                         </c:if>
@@ -114,12 +114,20 @@
 <%--                            <span>${info.info[p.pid].penalty}</span><br>--%>
                         <span>
                              <fmt:formatNumber type="number" value="${(info.info[p.pid].penalty-info.info[p.pid].penalty%(60*60))/(60*60)}" maxFractionDigits="0" pattern="00"/>:<fmt:formatNumber type="number" value="${(info.info[p.pid].penalty-info.info[p.pid].penalty%60)/60%60}" maxFractionDigits="0" pattern="00"/>:<fmt:formatNumber type="number" value="${info.info[p.pid].penalty%60}" maxFractionDigits="0" pattern="00"/><br>
-                        <c:if test="${info.info[p.pid].acFlag}">
-                            <c:if test="${info.info[p.pid].sum != 1}">
-                                <span>-${info.info[p.pid].sum-1}</span>
+<%--                        <c:if test="${info.info[p.pid].acFlag}">--%>
+                            <c:if test="${info.info[p.pid].sum >= 2}">
+                                 <c:if test="${info.info[p.pid].acFlag}">
+                                    <span>-${info.info[p.pid].sum-1}</span>
+                                 </c:if>
                             </c:if>
+                            <c:if test="${info.info[p.pid].sum >= 1}">
+                                 <c:if test="${!info.info[p.pid].acFlag}">
+                                    <span>-${info.info[p.pid].sum}</span>
+                                 </c:if>
+                             </c:if>
 
-                        </c:if>
+
+<%--                        </c:if>--%>
                  </td>
             </c:forEach>
                     <td style="display:table-cell; vertical-align:middle;">
