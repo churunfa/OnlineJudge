@@ -38,3 +38,6 @@ tr th{
 .first_pass{
     background-color: #66CCFF;
 }
+a:hover{
+    text-decoration:none;
+}

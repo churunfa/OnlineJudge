@@ -130,7 +130,7 @@
 <%--                        </c:if>--%>
                  </td>
             </c:forEach>
-                    <td style="display:table-cell; vertical-align:middle;">
+                    <td style="display:table-cell; vertical-align:middle; border:1px #ddd solid;">
                         <fmt:formatNumber type="number" value="${(info.penalty-info.penalty%(60*60))/(60*60)}" maxFractionDigits="0" pattern="00"/>:<fmt:formatNumber type="number" value="${(info.penalty-info.penalty%60)/60%60}" maxFractionDigits="0" pattern="00"/>:<fmt:formatNumber type="number" value="${info.penalty%60}" maxFractionDigits="0" pattern="00"/><br>
                     </td>
 <%--                    <td style="display:table-cell; vertical-align:middle;" class="pass">--%>
