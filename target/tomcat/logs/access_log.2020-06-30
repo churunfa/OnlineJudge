@@ -408,3 +408,10 @@
 0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:40:36 +0800] "POST /OnlineJudge/userServlet/findUserServlet HTTP/1.1" 200 324 http-bio-8080-exec-2 7
 0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:40:36 +0800] "GET /OnlineJudge/imgs/logo_blue_144.png HTTP/1.1" 200 14840 http-bio-8080-exec-2 3
 0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:40:37 +0800] "POST /OnlineJudge/contestServlet/askNowTime HTTP/1.1" 200 112 http-bio-8080-exec-2 5
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:21 +0800] "GET /OnlineJudge/contests/rank/?id=1 HTTP/1.1" 200 23032 http-bio-8080-exec-7 618
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:21 +0800] "GET /OnlineJudge/contests/rank/css/rank.css HTTP/1.1" 304 - http-bio-8080-exec-7 3
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:21 +0800] "GET /OnlineJudge/header.jsp HTTP/1.1" 200 20092 http-bio-8080-exec-7 4
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:21 +0800] "GET /OnlineJudge/footer.jsp HTTP/1.1" 200 341 http-bio-8080-exec-1 2
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:21 +0800] "POST /OnlineJudge/userServlet/findUserServlet HTTP/1.1" 200 324 http-bio-8080-exec-1 8
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:21 +0800] "GET /OnlineJudge/imgs/logo_blue_144.png HTTP/1.1" 200 14840 http-bio-8080-exec-1 10
+0:0:0:0:0:0:0:1 - - [30/Jun/2020:21:45:22 +0800] "POST /OnlineJudge/contestServlet/askNowTime HTTP/1.1" 200 112 http-bio-8080-exec-1 8

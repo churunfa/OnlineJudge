@@ -81,7 +81,6 @@
     List<top3Ac> info = new ArrayList<top3Ac>() ;
 
     for(Top3 top:top3s){
-        System.out.println(top.getTop1().getId());
         Contest_User_info top1_info = null,top2_info = null,top3_info = null;
         if(top.getTop1() != null) top1_info = userDao.findContest_User_info(top.getContest().getId(), top.getTop1().getId());
         if(top.getTop2() != null) top2_info = userDao.findContest_User_info(top.getContest().getId(), top.getTop2().getId());
@@ -206,7 +205,7 @@
 <%--                    <c:if test="${fn:length(top3)<=10}">--%>
                         <c:forEach items="${top3}" var="top" varStatus="sta">
                             <tr>
-                                <td style="display:table-cell; vertical-align:middle"><a href="${pageContext.request.contextPath}/contests/contests_show/?id=${top3[sta.index].contest.id}">Round #${top3[sta.index].contest.id} ${top3[sta.index].contest.name}</a></td>
+                                <td style="display:table-cell; vertical-align:middle"><a href="${pageContext.request.contextPath}/contests/contests_show/?id=${top3[sta.index].contest.id}">Round #${top3[sta.index].contest.id} ${top3[sta.index].contest.name}（${top3[sta.index].contest.type}）</a></td>
                                 <c:if test="${not empty top3[sta.index].top1}">
                                     <td style="display:table-cell; vertical-align:middle" class="top1_col"><img src="${pageContext.request.contextPath}${top3[sta.index].top1.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${top3[sta.index].top1.id}" style="font-size: 20px;display: block">${top3[sta.index].top1.name}</a></td>
                                     <td style="display:table-cell; vertical-align:middle" class="top1_col">${ac_sum[sta.index].top1}</td>

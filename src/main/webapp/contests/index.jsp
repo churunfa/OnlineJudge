@@ -116,7 +116,7 @@
                             <tbody style="text-align: center">
                             <c:forEach items="${info}" var="data" varStatus="sta">
                                 <tr>
-                                    <td style="display:table-cell; vertical-align:middle;max-width: 200px"><a href="${pageContext.request.contextPath}/contests/contests_show?id=${data.contest.id}">Round #${data.contest.id} ${data.contest.name}</a></td>
+                                    <td style="display:table-cell; vertical-align:middle;max-width: 200px"><a href="${pageContext.request.contextPath}/contests/contests_show?id=${data.contest.id}">Round #${data.contest.id} ${data.contest.name}（${data.contest.type}）</a></td>
                                     <td style="display:table-cell; vertical-align:middle;max-width: 150px"><img src="${pageContext.request.contextPath}${data.user.head_img}" alt="头像" class="img-circle" style="width: 30px;height: 30px"><a href="${pageContext.request.contextPath}/user?id=${data.user.id}" style="font-size: 20px;display: block">${data.user.name}</a></td>
                                     <td style="display:table-cell; vertical-align:middle"><fmt:formatDate value="${data.contest.start_time}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                                     <td style="display:table-cell; vertical-align:middle">${data.time}</td>
